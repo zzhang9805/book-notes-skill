@@ -1,10 +1,10 @@
 # Book Notes
 
-An OpenCode skill that automatically extracts and organizes book highlights, annotations, and notes from photos into markdown format.
+An AI agent skill that automatically extracts and organizes book highlights, annotations, and notes from photos into markdown format.
 
 ## Overview
 
-Book Notes helps you digitize your book reading notes by analyzing photos of highlighted passages, handwritten margin notes, and annotations. It automatically extracts the highlighted text, page numbers, chapter names, and any handwritten thoughts, then organizes everything into clean markdown files in your readings folder.
+Book Notes helps you digitize your book reading notes by analyzing photos of highlighted passages, handwritten margin notes, and annotations. It automatically extracts the highlighted text, page numbers, chapter names, and any handwritten thoughts, then organizes everything into clean markdown files.
 
 ## How It Works
 
@@ -14,14 +14,33 @@ Book Notes helps you digitize your book reading notes by analyzing photos of hig
 
 ## Installation
 
-This skill is designed for OpenCode. To install:
+### Option 1: Tell Your Agent to Install
 
-1. Copy the `book-notes` skill folder to your OpenCode skills directory:
-   ```
-   ~/.agents/skills/book-notes/
+Simply tell your AI agent (Claude, GPT, Cursor, etc.):
+
+```
+Install the book-notes skill from https://github.com/zzhang9805/book-notes-skill
+```
+
+The agent should:
+1. Clone this repository
+2. Copy the `book-notes` folder to its skills directory
+3. Restart or reload to activate
+
+### Option 2: Manual Installation
+
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/zzhang9805/book-notes-skill.git
    ```
 
-2. Restart OpenCode or start a new session
+2. Copy the skill folder to your agent's skills directory:
+   - **Claude Code**: `~/.claude/skills/book-notes/`
+   - **Cursor**: Check Cursor's plugins/skills directory
+   - **OpenCode**: `~/.agents/skills/book-notes/`
+   - **Other agents**: Check your agent's documentation for the skills directory location
+
+3. Restart your agent or start a new session
 
 ## Usage
 
