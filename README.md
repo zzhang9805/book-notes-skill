@@ -24,7 +24,7 @@ Install the book-notes skill from https://github.com/zzhang9805/book-notes-skill
 
 The agent should:
 1. Clone this repository
-2. Copy the `book-notes` folder to its skills directory
+2. Copy the `book-notes/` folder (containing `SKILL.md`) to its skills directory
 3. Restart or reload to activate
 
 ### Option 2: Manual Installation
@@ -34,11 +34,13 @@ The agent should:
    git clone https://github.com/zzhang9805/book-notes-skill.git
    ```
 
-2. Copy the skill folder to your agent's skills directory:
+2. Copy the `book-notes/` folder (containing `SKILL.md`) to your agent's skills directory:
    - **Claude Code**: `~/.claude/skills/book-notes/`
    - **Cursor**: Check Cursor's plugins/skills directory
    - **OpenCode**: `~/.agents/skills/book-notes/`
    - **Other agents**: Check your agent's documentation for the skills directory location
+
+   The resulting path should look like: `{skills-dir}/book-notes/SKILL.md`
 
 3. Restart your agent or start a new session
 
