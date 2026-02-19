@@ -59,7 +59,7 @@ The skill will:
 ## Features
 
 - **Automatic extraction** - Identifies highlighted text, bold/underlined passages
-- **Context inclusion** - Automatically includes 2 sentences before and after the highlight
+- **Context inclusion** - Automatically includes 2 complete sentences before and after the highlight (ending with . ? !, not stopping at commas)
 - **Page tracking** - Records page numbers from the photo
 - **Annotation capture** - Extracts handwritten margin notes and thoughts
 - **Chapter support** - Records chapter only when user explicitly mentions it
@@ -91,7 +91,7 @@ Notes are saved in `readings/{book_name}_notes.md`:
 ## Key Rules
 
 - **Exact transcription** - Highlights are copied word-for-word including punctuation
-- **Context mandatory** - Always includes 2 sentences before and after the highlight
+- **Context mandatory** - Always includes 2 complete sentences before and after the highlight (ending with . ? !, not at commas)
 - **Underline format** - Highlighted text uses `<u>text</u>` format
 - **Chapter handling** - Chapter is recorded only when user explicitly mentions it (not extracted from image)
 - **No AI insights** - Only record insights explicitly provided by user
