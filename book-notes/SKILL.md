@@ -20,7 +20,7 @@ Automatically identify highlighted text, annotations, page numbers, and chapter 
 
 Scan the user's book notes photo and extract the following information:
 - **Original highlight**: Look for underlined text, highlighted sections (usually in yellow/pink), or bold text
-- **Context**: Extract the 2 sentences BEFORE the highlight AND the 2 sentences AFTER the highlight for context (total 4 sentences)
+- **Context**: Extract the 2 **complete sentences** BEFORE the highlight AND the 2 **complete sentences** AFTER the highlight for context (total 4 sentences). A complete sentence ends with a period (.), question mark (?), or exclamation mark (!) - do NOT stop at commas. For example, if the text is "123456，23145。", extract the entire "123456，23145。" not just "123456，"
 - **Page**: Look for page numbers (usually at bottom/top corners of the page, or in page header/footer)
 - **Thoughts/Annotations**: Identify handwritten notes in margins, between lines, or sticky notes
 - **Book name**: Check for book title (usually on top of page, header, or on cover if visible)
@@ -128,8 +128,10 @@ Reference the template format provided by the user:
    - Thoughts only recorded when user provides them
 
 5. **Context is mandatory**:
-   - Always extract 2 sentences before the highlight
-   - Always extract 2 sentences after the highlight
+   - Always extract 2 **complete sentences** before the highlight (ending with . ? !)
+   - Always extract 2 **complete sentences** after the highlight (ending with . ? !)
+   - Do NOT stop at commas - extract the full sentence including any commas within it
+   - Example: "123456，23145。" → extract "123456，23145。" not "123456，"
    - Merge context directly into the highlight text
 
 6. **Insights rules**:
@@ -165,8 +167,8 @@ Actions:
    - Find page number: 12
    - Identify chapter: "Chapter 1"
    - Extract handwritten note: "Classic opening line"
-   - Extract 2 sentences before: "Mr. Bennet was among the earliest of those who waited on Mr. Bingley."
-   - Extract 2 sentences after: "that a man in possession of a good fortune, must be in want of a wife."
+   - Extract 2 complete sentences before: "Mr. Bennet was among the earliest of those who waited on Mr. Bingley." and "He had always intended to visit him."
+   - Extract 2 complete sentences after: "However little known the feelings or views of such a man may be on his first entering a neighbourhood." and "This truth is so well fixed in the minds of the surrounding families."
 2. Check conversation history for book name → Not found
 3. Ask user: "What's the book name for these notes?"
 4. User replies: "Pride and Prejudice"
@@ -181,7 +183,7 @@ Actions:
   - End date: 2026-02-19
 # Highlights
 
-- Mr. Bennet was among the earliest of those who waited on Mr. Bingley.<u>It is a truth universally acknowledged...</u>that a man in possession of a good fortune, must be in want of a wife.
+- Mr. Bennet was among the earliest of those who waited on Mr. Bingley. He had always intended to visit him.<u>It is a truth universally acknowledged...</u>However little known the feelings or views of such a man may be on his first entering a neighbourhood. This truth is so well fixed in the minds of the surrounding families.
   - Page: 12
   - Chapter: (only if user explicitly mentions)
   - Thoughts: Classic opening line
@@ -198,8 +200,8 @@ Actions:
 1. Analyze the image:
    - Identify highlighted text: "Money is a story"
    - Find page number: 88
-   - Extract 2 sentences before: "The book is about the soft side of money"
-   - Extract 2 sentences after: "that explains why people make irrational decisions about money"
+   - Extract 2 complete sentences before: "The book is about the soft side of money that we rarely discuss." and "Most financial advice focuses on numbers and spreadsheets."
+   - Extract 2 complete sentences after: "that explains why people make irrational decisions about their wealth." and "Understanding this narrative is key to changing your relationship with money."
 2. Check conversation history → User previously mentioned book name "The Psychology of Money"
 3. Do NOT extract chapter from image, do NOT ask for chapter
 4. Update `readings/The-Psychology-of-Money_notes.md` (file already exists, append to existing highlights):
@@ -218,8 +220,8 @@ Actions:
 1. Analyze the image:
    - Highlight: "The key is to think of money as"
    - Page: 156
-   - 2 sentences before: "Many people think about money as a thing"
-   - 2 sentences after: "not as a thing but as a story we tell ourselves"
+   - Extract 2 complete sentences before: "Many people think about money as a physical object they can hold." and "They see it as bills and coins in their wallet."
+   - Extract 2 complete sentences after: "not as a thing but as a story we tell ourselves about value and worth." and "This shift in perspective changes everything about how we earn and spend."
 2. User explicitly mentioned "Chapter 5" → Record it
 3. Record with context and chapter:
 ```markdown
@@ -234,7 +236,7 @@ User: [sends photo with 3 different highlighted sections on page 45]
 
 Actions:
 1. Extract all 3 highlights separately
-2. For each highlight, extract 2 sentences before and 2 sentences after
+2. For each highlight, extract 2 **complete sentences** before and 2 **complete sentences** after (ending with . ? !)
 3. Record them all with the same page number
 4. Chapter only recorded if user explicitly mentions it
 5. Each highlight maintains its own formatting with page number and context
